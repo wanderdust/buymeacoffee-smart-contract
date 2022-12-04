@@ -1,13 +1,17 @@
-# Sample Hardhat Project
+# Deploy a Smart Contract to buy me Coffee
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## Requirements
 
-Try running some of the following tasks:
+Create a .env file and add your keys.
+```
+STAGING_ALCHEMY_KEY= https://eth-goerli.g.alchemy.com/v2/keyhere-
+PRIVATE_KEY= Your Metamask PRivate key
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+```
+
+## Deploy a contract
+
+To deploy the contract run 
+```
+npx hardhat run scripts/deploy.js --network goerli
 ```

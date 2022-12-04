@@ -69,7 +69,7 @@ contract CoffeePortal {
         string memory _name,
         uint256 _payAmount
     ) public payable {
-        uint256 cost = 0.001 ether;
+        uint256 cost = 0.0001 ether;
         require(_payAmount <= cost, "Insufficient Ether provided");
 
         totalCoffee += 1;
