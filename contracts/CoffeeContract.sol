@@ -52,8 +52,7 @@ contract CoffeeContract {
     }
 
     // Withdraw function to transfer Ether from this contract to owner
-    function withdrawAll() public {
-        require(msg.sender == owner, "Only owner can withdraw");
+    function withdrawAll() private {
         (bool success, ) = owner.call{value: address(this).balance}("");
         require(success, "Failed to withdraw Ether");
     }

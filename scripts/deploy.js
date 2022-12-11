@@ -12,6 +12,7 @@ const main = async () => {
     await portal.deployed();
 
     console.log("CoffeeContr address: ", portal.address);
+    console.log(deployer.address);
 };
 
 const runMain = async () => {
