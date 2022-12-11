@@ -25,7 +25,7 @@ contract CoffeeContract {
         uint256 _amount,
         string memory _message,
         string memory _name
-    ) public {
+    ) public payable {
         uint256 maxAmount = 0.005 ether;
         require(
             _amount <= maxAmount,
