@@ -1,6 +1,8 @@
 const main = async () => {
+
+    // Deploy the CoffeeContract
     const coffeeContractFactory = await hre.ethers.getContractFactory(
-        "CoffeePortal"
+        "CoffeeContract"
     );
     const coffeeContract = await coffeeContractFactory.deploy({
         value: hre.ethers.utils.parseEther("0.1"),
@@ -8,9 +10,7 @@ const main = async () => {
     await coffeeContract.deployed();
     console.log("Coffee Contract deployed to:", coffeeContract.address);
 
-    /*
-     * Get Contract balance
-     */
+    // Get Contract balance
     let contractBalance = await hre.ethers.provider.getBalance(
         coffeeContract.address
     );
@@ -19,19 +19,15 @@ const main = async () => {
         hre.ethers.utils.formatEther(contractBalance)
     );
 
-    /*
-     * Let's try to buy a coffee
-     */
-    const coffeeTxn = await coffeeContract.buyCoffee(
+    // Make a transfer
+    const transaction = await coffeeContract.transfer(
+        ethers.utils.parseEther("0.005"),
         "This is coffee #1",
-        "idris",
-        ethers.utils.parseEther("0.001")
+        "Pablo"
     );
-    await coffeeTxn.wait();
+    await transaction.wait();
 
-    /*
-     * Get Contract balance to see what happened!
-     */
+    // Get Contract balance
     contractBalance = await hre.ethers.provider.getBalance(
         coffeeContract.address
     );
@@ -42,6 +38,7 @@ const main = async () => {
 
     let allCoffee = await coffeeContract.getAllCoffee();
     console.log(allCoffee);
+
 };
 
 const runMain = async () => {

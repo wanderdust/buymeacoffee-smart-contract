@@ -15,3 +15,14 @@ To deploy the contract run
 ```
 npx hardhat run scripts/deploy.js --network goerli
 ```
+
+## Testing locally
+
+Start a local node
+```
+npx hardhat node
+```
+Then run the run.js script
+```
+npx hardhat run scripts/run.js --network localhost
+```
