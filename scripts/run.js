@@ -23,7 +23,8 @@ const main = async () => {
     const transaction = await coffeeContract.transfer(
         ethers.utils.parseEther("0.005"),
         "This is coffee #1",
-        "Pablo"
+        "Pablo",
+        { value: hre.ethers.utils.parseEther("0.1345"), gasLimit: 300000 }
     );
     await transaction.wait();
 
